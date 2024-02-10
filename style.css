@@ -28,7 +28,7 @@ main {
     background-color: #0d0d0c;
     color: white;
 }
-.search-container input:focus, #type:focus {
+.search-container input:focus, .typeSearch:focus {
     outline: none;
 }
 .search-container {
@@ -53,7 +53,7 @@ p {
     color: white;
     text-align: center;
 }
-#type {
+.typeSearch {
     background-color: #0d0d0c;
     color: white;
     border: none;
