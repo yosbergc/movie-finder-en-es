@@ -3,7 +3,8 @@ let dropdown = document.querySelector('.other-langs');
 let searchQuery = document.querySelector('.search-query');
 let searchButton = document.querySelector('.searchButton');
 let typeSearch = document.querySelector('.typeSearch');
-
+let startContainer = document.querySelector('.index-container');
+let resultsContainer = document.querySelector('.results')
 searchButton.addEventListener('click', checkSearch);
 currentLang.addEventListener('click', showLanguages);
 function showLanguages() {
@@ -18,12 +19,33 @@ function checkSearch() {
     let value = searchQuery.value;
     let typeValue = typeSearch.value;
     if (value.length > 0) {
-        makeSearch(value, typeValue);
+        showResults(value, typeValue);
     } else {
         alert('Insert the title')
     }
 }
-
+async function showResults(value, typeValue) {
+    try {
+        let conexion = await makeSearch(value, typeValue);
+        let datos = conexion.result;
+        console.log(datos)
+        let items = datos.map(element => {
+            if (element.year === undefined) {
+                element.year = '';
+            }
+            return `<article class="single-item">
+            <h2>${element.originalTitle}</h2>
+            <div class="item-info">
+            ${element.year} - ${element.type.toUpperCase()}
+            </div>
+            </article>`
+        });
+        startContainer.style.display = 'none';
+        resultsContainer.innerHTML = items.join('');
+    } catch (error) {
+        console.log(error)
+    }
+}
 function makeSearch(value, type) {
     let API = 'https://streaming-availability.p.rapidapi.com/search/title';
     let actualType = 'all';
@@ -38,9 +60,8 @@ function makeSearch(value, type) {
     if (type !== 'both') {
         actualType = type;
     }
-    let datosObtenidos;
-    fetch(`${API}?title=${value}&country=us&show_type=${actualType}`, options)
+    return fetch(`${API}?title=${value}&country=us&show_type=${actualType}`, options)
     .then(res => res.json())
-    .then(data => datosObtenidos = data)
-    .catch(error => console.log(error))
+    .then(data => data)
+    .catch(error => console.log(error));
 }

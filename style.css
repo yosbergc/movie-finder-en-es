@@ -10,6 +10,7 @@ main {
     min-height: 100vh;
     justify-content: center;
     align-items: center;
+    width: 100%;
     background-color: #0d0d0c;
     padding: 20px;
 }
@@ -62,8 +63,8 @@ p {
 footer {
     color: white;
     font-size: 14px;
-    position: absolute;
-    bottom: 20px;
+    bottom: 0px;
+    background-color: #0d0d0c;
 }
 footer a {
     color: white;
@@ -108,4 +109,27 @@ header {
 }
 .lang:hover {
     cursor: pointer;
+}
+.results {
+    padding: 80px;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+.single-item {
+    padding: 20px;
+    border: 1px solid rgb(58, 58, 58);
+    border-radius: 5px;
+}
+.item-info {
+    margin-top: 5pxsearch-container;
+}
+.index-container {
+    padding-top: 60px;
+}
+@media (min-width: 1280px) {
+    .results {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
