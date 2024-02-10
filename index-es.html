@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>Encuentra donde está tu serie/película | Movie Finder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <header>
+            <button class="lang en" id="currentLang"><img src="es.png" alt="ES img" class="flag">ES</button>
+            <ul class="other-langs">
+                <li class="lang es"><a href="index.html"><img src="en.png" alt="EN img" class="flag">EN</a></li>
+            </ul>
+        </header>
+        <h1>Movie Finder</h1>
+        <p>Busca tu película o serie favorita y descubre en qué plataforma de streaming puedes verla.</p>
+        <section class="search-container">
+            <input type="text">
+            <select name="type" id="type">
+                <option value="both">Ambos</option>
+                <option value="movie">Películas</option>
+                <option value="series">Series</option>
+            </select>
+            <img src="search-icon.svg" alt="Search Icon">
+        </section>
+        <footer>Hecho con ❤️ por <a href="https://github.com/yosbergc">Bytdev</a></footer>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
